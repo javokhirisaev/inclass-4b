@@ -7,3 +7,19 @@ let products = [
   { sku: "B5001", name: "Book", category: "other", price: 15, inventory: 6 }
 ];
 
+// Step 3: Category discounts
+for (let product of products) {
+  let discount = 0;
+  switch (product.category) {
+    case "electronics":
+      discount = 0.20; break;
+    case "clothes":
+      discount = 0.15; break;
+    case "groceries":
+    case "household":
+      discount = 0.10; break;
+    default:
+      discount = 0;
+  }
+  product.promoPrice =(product.price * (1 - discount));
+}
